@@ -14,7 +14,7 @@ RUN npm install --legacy-peer-deps
 # Copy app source code
 COPY . .
 
-RUN npm run build
+# RUN npm run build
 
 # Expose port 8088
 EXPOSE 8088

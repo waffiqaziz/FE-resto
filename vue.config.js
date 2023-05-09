@@ -5,7 +5,7 @@ module.exports = defineConfig({
   // devServer: {
   //   disableHostCheck: true
   // }
-  publicPath: "https://restaurant-client-dot-if-c-01-project.df.r.appspot.com/"
+  publicPath: "https://restaurant-client-dot-if-c-01-project.df.r.appspot.com"
 });
 
 // module.exports = {

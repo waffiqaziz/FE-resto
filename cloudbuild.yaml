@@ -19,7 +19,6 @@ steps:
         '--image-url=gcr.io/$PROJECT_ID/restaurant-client:1.0',
         '--project=$PROJECT_ID',
         '--quiet',
-        '--promote'
       ]
 
   # --image-url menunjukkan URL image Docker yang akan di-deploy ke App Engine.

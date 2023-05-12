@@ -29,8 +29,8 @@ RUN npm install --global serve
 # Copy build artifacts from the previous stage
 COPY --from=build /usr/src/app/dist ./dist
 
-# Expose port 3030
-EXPOSE 3030
+# Expose port 8080
+EXPOSE 8080
 
 # Run the app
 CMD ["serve", "-s", "dist", "-p", "3030"]

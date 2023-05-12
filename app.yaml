@@ -7,14 +7,6 @@ env: flex
 # Nama layanan yang akan digunakan dalam App Engine.
 service: restaurant-client-v2
 
-# Menentukan bagaimana permintaan HTTP akan ditangani. 
-# Pada konfigurasi ini terdapat 2 aturan penanganan permintaan, yaitu:
-handlers:
-# Aturan untuk menangani permintaan yang tidak sesuai dengan aturan sebelumnya, 
-  # yang akan diarahkan ke script auto.
-  - url: /.*
-    script: auto
-
 # Konfigurasi auto scaling
 automatic_scaling:
   min_num_instances: 1
@@ -22,7 +14,7 @@ automatic_scaling:
   cool_down_period_sec: 180
   cpu_utilization:
     target_utilization: 0.5
-    
+
 resources:
   cpu: 1
   memory_gb: 2

@@ -9,6 +9,7 @@ COPY package*.json ./
 
 
 # Install app dependencies
+RUN npm install --global serve
 RUN npm install --legacy-peer-deps
 
 # Copy app source code
@@ -17,7 +18,7 @@ COPY . .
 # RUN npm run build
 
 # Expose port 8088
-EXPOSE 8080
+EXPOSE 3030
 
 # Run database migrations
-CMD npm run serve
+CMD npx serve -s dist -p 3030

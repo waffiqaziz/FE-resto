@@ -5,7 +5,7 @@ runtime: custom
 env: flex
 
 # Nama layanan yang akan digunakan dalam App Engine.
-service: restaurant-client-v2
+service: restaurant-client
 
 handlers:
   # Serve all static files with urls ending with a file extension

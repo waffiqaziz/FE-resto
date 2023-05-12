@@ -7,7 +7,7 @@ steps:
   # Push the Docker image to Google Container Registry
   # Langkah kedua melakukan push Docker image yang telah dibuild ke Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/restaurant-client-v2:1.0']
+    args: ['push', 'gcr.io/$PROJECT_ID/restaurant-client:1.0']
 
   # Deploy the Docker image to App Engine
   # Langkah ketiga melakukan deploy Docker image ke Google App Engine
@@ -16,7 +16,7 @@ steps:
       [
         'app',
         'deploy',
-        '--image-url=gcr.io/$PROJECT_ID/restaurant-client-v2:1.0',
+        '--image-url=gcr.io/$PROJECT_ID/restaurant-client:1.0',
         '--project=$PROJECT_ID',
         '--quiet',
         '--promote'

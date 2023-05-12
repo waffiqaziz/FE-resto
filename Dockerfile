@@ -33,4 +33,4 @@ COPY --from=build /usr/src/app/dist ./dist
 EXPOSE 8080
 
 # Run the app
-CMD ["serve", "-s", "dist", "-p", "3030"]
+CMD ["serve", "-s", "dist", "-p", "8080"]

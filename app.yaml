@@ -7,6 +7,12 @@ env: flex
 # Nama layanan yang akan digunakan dalam App Engine.
 service: restaurant-client-v2
 
+handlers:
+- url: /.*
+  static_files: dist/index.html
+  upload: dist/index.html
+  secure: always
+
 # Konfigurasi auto scaling
 automatic_scaling:
   min_num_instances: 1

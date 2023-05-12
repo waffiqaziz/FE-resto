@@ -24,4 +24,3 @@ steps:
   # --image-url menunjukkan URL image Docker yang akan di-deploy ke App Engine.
   # --project menunjukkan ID dari project yang akan digunakan.
   # --quiet menunjukkan untuk tidak menampilkan output yang berlebihan selama proses deploy.
-  # --promote menunjukkan untuk langsung mempromosikan versi aplikasi yang baru di deploy sebagai versi utama di App Engine.

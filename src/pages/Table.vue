@@ -63,8 +63,7 @@
                 </div>
                 <div class="input-box">
                     <label for="oWhen">when</label>
-                    <input type="datetime-local" name="oWhen" id="oWhen" v-model="orderObj.when"
-                        @click="availableTime()">
+                    <input type="datetime-local" name="oWhen" id="oWhen" v-model="orderObj.when" @click="availableTime()">
                     <p v-if="errorObj.whenErr.length > 0">{{ errorObj.whenErr[0] }}</p>
                 </div>
             </div>
@@ -72,12 +71,12 @@
             <div class="row">
                 <div class="input-box">
                     <label for="uMessage">note</label>
-                    <textarea placeholder="your message, do you want to decorate your table?" name="uMessage"
-                        id="uMessage" cols="30" rows="10" v-model="orderObj.note"></textarea>
+                    <textarea placeholder="your message, do you want to decorate your table?" name="uMessage" id="uMessage"
+                        cols="30" rows="10" v-model="orderObj.note"></textarea>
                 </div>
                 <div class="input-box">
                     <iframe class="map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8938607918262!2d105.77118931493284!3d21.03693248599396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b6336e0f73%3A0x713103931378d09e!2zMiBExrDGoW5nIEtodcOqLCBNYWkgROG7i2NoLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1637511438358!5m2!1svi!2s"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.072395137663!2d110.4120503745539!3d-7.782149077215469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a599155555555%3A0x536eb168b1dca148!2sUPN%20Veteran%20Yogyakarta%20Kampus%202%20Babarsari!5e0!3m2!1sen!2sid!4v1684739894424!5m2!1sen!2sid"
                         loading="lazy"></iframe>
                 </div>
             </div>
@@ -91,6 +90,7 @@
 <script>
 import axios from 'axios';
 import VueBasicAlert from 'vue-basic-alert'
+import { mapState } from "vuex";
 export default {
     name: "Table",
 
@@ -100,6 +100,12 @@ export default {
             errorObj: { nameErr: [], phoneErr: [], peopleErr: [], tablesErr: [], cardErr: [], whenErr: [] },
         }
     },
+
+    
+    computed: {
+        ...mapState(["user"]),
+    },
+
 
     methods: {
         availableTime: function () {
@@ -116,6 +122,7 @@ export default {
             document.getElementById("oWhen").setAttribute("max", maxRange);
         },
 
+
         resetCheckErr: function () {
             this.errorObj.nameErr = [];
             this.errorObj.phoneErr = [];
@@ -125,6 +132,7 @@ export default {
             this.errorObj.whenErr = [];
         },
 
+
         checkEmptyErr: function () {
             for (var typeErr in this.errorObj) {
                 if (this.errorObj[typeErr].length != 0) {
@@ -133,7 +141,6 @@ export default {
             }
             return true;
         },
-
 
 
         checkForm: function () {
@@ -233,20 +240,20 @@ export default {
 
         },
 
+
         async handleSubmit(e) {
             this.checkForm();
 
             if (!this.checkEmptyErr()) {
                 e.preventDefault();
-            } else {
+            } else if (this.user) {
                 e.preventDefault();
-
                 let data = {
                     book_name: this.orderObj.name,
                     book_phone: parseInt(this.orderObj.phone),
                     book_people: parseInt(this.orderObj.people),
                     book_tables: parseInt(this.orderObj.tables),
-                    user_id: parseInt(this.orderObj.card),
+                    user_id: parseInt(this.user.user_id),
                     book_when: this.orderObj.when,
                     book_note: this.orderObj.note,
                 }

@@ -39,7 +39,7 @@ export default {
             allFoodsInBill: [],
             item_qty: [],
 
-            billMatch: undefined,
+            billMatch: [],
         }
     },
 

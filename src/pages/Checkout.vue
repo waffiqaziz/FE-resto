@@ -324,7 +324,7 @@ export default {
                     bill_delivery: parseInt(this.calculateSummaryPrice()[2]),
                     bill_total: parseInt(this.calculateSummaryPrice()[3]),
                     bill_paid: this.isPaid(),
-                    bill_status: 1
+                    bill_status: 1 // confirmed
                 }
 
                 axios.post("/billstatus", billStatus);
